@@ -1,0 +1,43 @@
+1 d
+2 b
+3 c
+4 a
+5 e
+6 bc
+7 c
+8 bcefgh
+9 fca
+10 ca
+11 chfg
+12 ecfa
+13 17,inf,inf
+14 8,1,3
+15 8,2,4
+16 100,8,6
+17 bdef
+18 bdecgdecgdec
+19 bdaf
+20 bdef
+------
+1 because data-link layer routes a datagram through a series of routers between sources and destination, and handles different types of links like Wifi or Ethernet
+2 because the transport layer handles flow control and provides a congestion control
+3 because the networking layer moves packets from 1 host to another and plans the route for those packets. It also involves many protocols
+4 because the application is distributed over multiple end systems, like IOUTube which is an application 
+5 because physical layer moves entire frames from 1 network element to an adjacent network element and depends on the material of the link
+6 b because global routing is valid, so there is a deterministic path between the source and the destination, there is no loops or deadends; thus the packet is always received
+  c because the global routing is valid, there must be no deadends or loops
+7 c because if the packet is not received, no ACK will be received. Then the sender will timeout and resend the packet
+8 A floods B and C, then C floods F and E, then F floods G and H 
+9 Since G knows how to get back to A, G will directly send to F. F knows how to get to A, so it sends to C, and the same with C
+10 In 8, C floods E with the information about A, so it knows how to get back to A. Therefore, it just directly sends to C, and C sends to A
+11 E does not know where G is, so it floods C and H. But C knows how to get back to G in question 9. Therefore, C just sends to G directly. 
+12 C losts its cache so it does not know how to get to both A and G. H first floods E. E knows where to go to A so it sends to C. C floods both A and F
+13 A sends the cost that from A to E is 12 and from B to A is 5 so from B through A to E is 17. Since we have not received any thing from D and G so the rest are still inf
+14 A->D = 3, B->A = 5 --> B-A-D = 8
+    G->D = 1, B->G = 2 --> B-G-D = 3
+15 After the doing all the routing tables, I figured it out
+16 The same with the above
+17 The cost of BDEF is only 4 so it's the smallest cost
+18 Since D does not know the change, B first sends to D, then D thinks D-E link only costs 1, it sends to E. However, E thinks E-C-G-D-A-F costs smaller than E-F (20) so it sends to C. C sends to G and gets back to D-->loop
+19 Now D is updated, so D knows that the less expensive cost path is through A to F. 
+20 Since the BDEF costs only 7, while other costs more, it is the same with the path D thinks is the least expensive. 
